@@ -1,0 +1,28 @@
+@startuml TodoApp
+
+namespace TodoApp.Data.Repositorios {
+    abstract class "Repositorio<T>" <<IRepositorio>> {
+        #Repositorio(DbContext)
+        +Incluir(T entidade)
+        +Alterar(T entidade)
+        +Excluir(T entidade)
+        +Excluir(Guid id)
+        +ObterTodos(Guid idUsuario)
+        +ObterPorId(Guid id)
+    }
+
+    class UsuarioRepositorio <<IUsuarioRepositorio>> {
+        +UsuarioRepositorio(DbContext)
+        +Task<bool> Autenticar(Usuario usuario)
+    }
+
+    class TodoRepositorio <<ITodoRepositorio>> {
+        +TodoRepositorio(DbContext)
+    }
+
+    "Repositorio<T>" <|-- UsuarioRepositorio
+    "Repositorio<T>" <|-- TodoRepositorio
+}
+
+
+@enduml

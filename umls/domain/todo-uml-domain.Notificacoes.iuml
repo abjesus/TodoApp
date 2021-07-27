@@ -1,0 +1,29 @@
+@startuml TodoApp
+
+namespace TodoApp.Domain.Notificacoes {
+    class Notificacao {
+        +Tipo: TipoNotificacao
+        +Mensagem: string
+
+        +Notificacao(TipoNotificacao, string)
+    }
+
+    class Notificador <<INotificador>> {
+        +_notificacoes: List<Notificacao>
+        +Notificacoes: List<Notificacao>
+        +PossuiInconsistencia: bool
+
+        +Notificador()
+        +Adicionar(Notificacao)
+    }
+
+    enum TipoNotificacao {
+        Informacao = 1
+        Erro = 2
+    }
+
+    Notificador -- Notificacao
+    Notificacao -- TipoNotificacao
+}
+
+@enduml

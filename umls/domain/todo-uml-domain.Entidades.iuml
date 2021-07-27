@@ -1,0 +1,49 @@
+@startuml TodoApp
+
+skinparam classAttributeIconSize 0
+
+namespace TodoApp.Domain.Entidades {
+    abstract class Entidade {
+        +Id: Guid
+        +Criacao: DateTime
+        +Alteracao: DateTime
+        +UsuarioCriacao: Guid
+        +UsuarioAlteracao: Guid
+    }
+
+    class Usuario {
+        +Usuario: string
+        +Senha: string
+        +Nome: string
+        +Sobrenome: string
+        +Status: int
+    }
+    class Todo {
+        +UsuarioId: Guid
+        +Nome: string
+        +Descricao: string
+        +Vencimento: DateTime
+        +Status: int
+    }
+
+    enum TodoStatus {
+        +Pendente = 1
+        +EmAndamento = 2
+        +Concluido = 3
+    }
+
+    enum UsuarioStatus {
+        +Ativo = 1
+        +Inativo = 0
+    }
+
+    Entidade <|-- Usuario
+    Entidade <|-- Todo
+
+    Todo -- TodoStatus
+    Usuario -- UsuarioStatus
+
+    Usuario "1" *-- "N" Todo
+}
+
+@enduml
