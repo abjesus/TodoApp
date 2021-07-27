@@ -9,9 +9,8 @@ namespace TodoApp.Domain.Notificacoes {
     }
 
     class Notificador <<INotificador>> {
-        +_notificacoes: List<Notificacao>
         +Notificacoes: List<Notificacao>
-        +PossuiInconsistencia: bool
+        +PossuiErros: bool
 
         +Notificador()
         +Adicionar(Notificacao)

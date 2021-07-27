@@ -12,7 +12,7 @@ namespace TodoApp.Domain.Entidades {
     }
 
     class Usuario {
-        +Usuario: string
+        +Email: string
         +Senha: string
         +Nome: string
         +Sobrenome: string
