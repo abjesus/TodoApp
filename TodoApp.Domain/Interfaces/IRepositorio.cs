@@ -10,6 +10,6 @@ namespace TodoApp.Domain.Interfaces
         Task Alterar(T entidade);
         Task Excluir(T entidade);
         Task<T> ObterPorId(Guid id);
-        Task<IEnumerable<T>> ObterTodos(Guid idUsuario);
+        Task<List<T>> ObterTodos(Guid idUsuario);
     }
 }

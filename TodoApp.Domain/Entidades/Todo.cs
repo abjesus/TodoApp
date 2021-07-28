@@ -8,7 +8,7 @@ namespace TodoApp.Domain.Entidades
     {
         public Guid UsuarioId { get; set; }
 
-        public Usuario Usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
 
         public string Nome { get; set; }
 
