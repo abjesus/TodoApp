@@ -1,6 +1,8 @@
-﻿namespace TodoApp.Domain.Interfaces
+﻿using TodoApp.Domain.Entidades;
+
+namespace TodoApp.Domain.Interfaces
 {
-    public interface ITodoRepositorio
+    public interface ITodoRepositorio : IRepositorio<Todo>
     {
         
     }

@@ -3,8 +3,8 @@ using TodoApp.Domain.Entidades;
 
 namespace TodoApp.Domain.Interfaces
 {
-    public interface IUsuarioRepositorio
+    public interface IUsuarioRepositorio : IRepositorio<Usuario>
     {
-        Task<bool> Autenticar(Usuario usuario);
+        Task<bool> Autenticar(string email, string senha);
     }
 }

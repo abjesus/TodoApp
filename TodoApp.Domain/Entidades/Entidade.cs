@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using System;
+using System.Collections.Generic;
 using TodoApp.Domain.Interfaces;
 using TodoApp.Domain.Notificacoes;
 
@@ -10,6 +11,8 @@ namespace TodoApp.Domain.Entidades
         private readonly INotificador _notificador;
 
         protected bool PossuiErros => _notificador.PossuiErros;
+
+        public List<Notificacao> Notificacoes => _notificador.Notificacoes;
 
         public Guid Id { get; set; }
 

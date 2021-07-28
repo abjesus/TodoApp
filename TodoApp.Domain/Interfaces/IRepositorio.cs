@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace TodoApp.Domain.Interfaces
 {
     public interface IRepositorio<T>
     {
-        T Incluir(T entidade);
-        T Alterar(T entidade);
-        T Excluir(T entidade);
-        T ObterPorId(Guid id);
-        IEnumerable<T> ObterTodos(Guid idUsuario);
+        Task Incluir(T entidade);
+        Task Alterar(T entidade);
+        Task Excluir(T entidade);
+        Task<T> ObterPorId(Guid id);
+        Task<IEnumerable<T>> ObterTodos(Guid idUsuario);
     }
 }

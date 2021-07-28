@@ -53,10 +53,15 @@
     <Compile Include="Interfaces\INotificador.cs" />
     <Compile Include="Interfaces\IRepositorio.cs" />
     <Compile Include="Interfaces\ITodoRepositorio.cs" />
+    <Compile Include="Interfaces\ITodoService.cs" />
     <Compile Include="Interfaces\IUsuarioRepositorio.cs" />
+    <Compile Include="Interfaces\IUsuarioService.cs" />
     <Compile Include="Notificacoes\Notificacao.cs" />
     <Compile Include="Notificacoes\Notificador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\TodoService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="Validators\TodoValidator.cs" />
     <Compile Include="Validators\UsuarioValidator.cs" />
   </ItemGroup>
