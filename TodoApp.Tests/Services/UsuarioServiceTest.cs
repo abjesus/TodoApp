@@ -158,5 +158,49 @@ namespace TodoApp.Tests.Services
             Assert.IsTrue(ehAutentico);
         }
 
+        [TestMethod]
+        public async Task Usuario_DeveNotificarErroIncluir()
+        {
+            var notificador = new Notificador();
+            var contexto = new DbContexto();
+            var repositorio = new UsuarioRepositorio(contexto);
+            var service = new UsuarioService(repositorio, notificador);
+
+            var usuario = new Domain.Entidades.Usuario
+            {
+                Email = "exemplo@.com",
+                Senha = "",
+                Nome = "Abel",
+                Sobrenome = "Teste",
+                Status = Domain.Enumeradores.UsuarioStatus.Ativo,
+            };
+
+            await service.Incluir(usuario);
+
+            Assert.IsTrue(notificador.PossuiErros);
+        }
+
+        [TestMethod]
+        public async Task Usuario_DeveNotificarErroAlterar()
+        {
+            var notificador = new Notificador();
+            var contexto = new DbContexto();
+            var repositorio = new UsuarioRepositorio(contexto);
+            var service = new UsuarioService(repositorio, notificador);
+
+            var usuario = new Domain.Entidades.Usuario
+            {
+                Email = "exemplo@.com",
+                Senha = "",
+                Nome = "Abel",
+                Sobrenome = "Teste",
+                Status = Domain.Enumeradores.UsuarioStatus.Ativo,
+            };
+
+            await service.Alterar(usuario);
+
+            Assert.IsTrue(notificador.PossuiErros);
+        }
+
     }
 }
