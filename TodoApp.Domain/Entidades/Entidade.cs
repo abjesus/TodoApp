@@ -16,13 +16,13 @@ namespace TodoApp.Domain.Entidades
 
         public Guid Id { get; set; }
 
-        public DateTime Criacao { get; set; }
+        public DateTime? Criacao { get; set; }
 
-        public DateTime Alteracao { get; set; }
+        public DateTime? Alteracao { get; set; }
 
-        public Guid UsuarioCriacao { get; set; }
+        public Guid? UsuarioCriacao { get; set; }
 
-        public Guid UsuarioAlteracao { get; set; }
+        public Guid? UsuarioAlteracao { get; set; }
 
         public Entidade()
         {

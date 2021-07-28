@@ -16,7 +16,7 @@ namespace TodoApp.Data.Contexto
 
         public DbSet<Todo> Todos { get; set; }
 
-        public DbContexto() : base("")
+        public DbContexto() : base(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TodoApp;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {}
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

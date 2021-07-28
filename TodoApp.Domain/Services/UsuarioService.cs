@@ -47,14 +47,14 @@ namespace TodoApp.Domain.Services
             return await _repositorio.ObterPorId(id);
         }
 
-        public async Task<IEnumerable<Usuario>> ObterTodos(Guid idUsuario)
+        public async Task<List<Usuario>> ObterTodos(Guid idUsuario)
         {
             return await _repositorio.ObterTodos(idUsuario);
         }
 
-        public async Task<bool> Autenticar(string email, string senha)
+        public bool Autenticar(string email, string senha)
         {
-            return await _repositorio.Autenticar(email, senha);
+            return _repositorio.Autenticar(email, senha);
         }
 
         public async Task Excluir(Guid id)
