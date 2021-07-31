@@ -1,0 +1,140 @@
+﻿<div class="container">
+    <div class="quadro">
+        <div class="quadro-header">
+            <h3>Fazer</h3><span>+</span>
+        </div>
+        <div id="fazer" class="quadro-body">
+            <div id="item1" class="item" draggable="true">ITEM1</div>
+            <div id="item2" class="item" draggable="true">ITEM2</div>
+            <div id="item3" class="item" draggable="true">ITEM3</div>
+        </div>
+    </div>
+    <div class="quadro">
+        <div class="quadro-header">
+            <h3>Fazendo</h3><span>+</span>
+        </div>
+        <div id="fazendo" class="quadro-body">
+            <div id="item4" class="item" draggable="true">ITEM4</div>
+        </div>
+    </div>
+    <div class="quadro">
+        <div class="quadro-header">
+            <h3>Feito</h3><span>+</span>
+        </div>
+        <div id="feito" class="quadro-body">
+            <div id="item5" class="item" draggable="true">ITEM5</div>
+            <div id="item6" class="item" draggable="true">ITEM6</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .quadro-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-style: groove;
+        border-width: 5px;
+        height: 20%;
+        padding-right: 10px;
+    }
+
+    .quadro-body {
+        border-style: groove;
+        border-width: 5px;
+        min-height: 60px;
+    }
+
+    .quadro {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30rem;
+        height: auto;
+        /*border-style: dotted;
+        border-width: 5px;*/
+    }
+
+    .item {
+        width: 100%;
+        height: 50px;
+        border-style: solid;
+        border-width: 5px;
+        margin: 5px 0px 5px 0px;
+    }
+
+    h3 {
+        margin: unset;
+    }
+    
+</style>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            draggableInit();
+        });
+
+        function draggableInit() {
+            let elementoDestino;
+
+            $('[draggable=true]').bind('dragstart', (event) => {
+                event.originalEvent.dataTransfer.setData("text/plain", event.target.getAttribute('id'));
+            });
+
+            $('.quadro-body').bind('dragover', (event) => {
+                event.preventDefault();
+
+                const elemento = document.elementFromPoint(event.clientX, event.clientY);
+                if (!elemento)
+                    return;
+
+                if (!elemento.classList.contains('item'))
+                    return;
+
+                // remove o espaçador antes de colocar um novo
+                $('#espacador').remove();
+
+                const newEl = document.createElement('div');
+                newEl.style.height = `${elemento.clientHeight}px`;
+                newEl.id = 'espacador';
+
+                elemento.parentNode.insertBefore(newEl, elemento);
+
+                elementoDestino = elemento;
+            });
+
+            $('.quadro-body').bind('drop', (event) => {
+                $('#espacador').remove();
+
+                const elementoId = event.originalEvent.dataTransfer.getData("text/plain");
+
+                setTimeout(() => {
+                    const elemento = document.getElementById(elementoId);
+                    if (!elemento)
+                        return;
+
+                    if (event.target.getAttribute('class')?.endsWith('quadro-body'))
+                        event.target.prepend(elemento);
+                    else
+                        elementoDestino.parentNode.insertBefore(elemento, elementoDestino);
+                    
+                }, 500);
+
+                event.preventDefault();
+            });
+
+            $('.quadro-body').bind('dragend', (event) => {
+                $('#espacador').remove();
+            });
+        }
+    </script>
+}
