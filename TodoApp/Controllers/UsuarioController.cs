@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TodoApp.Domain.Interfaces;
 
 namespace TodoApp.Controllers
@@ -20,6 +15,11 @@ namespace TodoApp.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Entrar()
+        {
+            return View("login");
         }
 
         public ActionResult Autenticar(string email, string senha)

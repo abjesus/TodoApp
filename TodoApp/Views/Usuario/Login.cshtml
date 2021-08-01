@@ -1,0 +1,103 @@
+﻿<div class="container">
+    <div class="painel1">
+        <h2>ENTRAR</h2>
+        <form method="post" action="@Url.Action("Autenticar", "Usuario")">
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control campo" placeholder="email" required />
+            </div>
+            <div class="form-group">
+                <input type="password" id="senha" name="senha" class="form-control campo" placeholder="*********" required />
+            </div>
+            <div class="form-group container-apoio">
+                <div>
+                    <input type="checkbox" id="lembrar" />
+                    <label for="lembrar">Lembrar</label>
+                </div>
+                <div>
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="botao-submit">OK</button>
+                <a href="#" class="criar-conta">Criar conta grátis</a>
+            </div>
+        </form>
+    </div>
+    <div class="painel2">
+        <img src="~/Imagens/todolist.svg" alt="todolist" />
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60rem;
+        height: 40rem;
+        border: none;
+        background-color: white;
+        padding: 0px;
+    }
+
+    .painel1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        padding: 15px;
+        background-color: deepskyblue;
+    }
+
+    .painel1 > h2 {
+        display: flex;
+        justify-content: center;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    .painel2 {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .campo {
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .container-apoio {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .8em;
+    }
+
+    .botao-submit {
+        border: none;
+        border-radius: 20px;
+        background-color: forestgreen;
+        color: white;
+        width: 100%;
+        padding: 10px 12px;
+    }
+
+    .criar-conta {
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        margin-top: 10px;
+    }
+
+</style>
