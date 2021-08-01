@@ -19,6 +19,12 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="botao-submit">OK</button>
+                @{ 
+                    if (!string.IsNullOrEmpty(ViewBag.retornoLogin))
+                    {
+                        <p class="alerta-login">@ViewBag.retornoLogin</p>
+                    }
+                }
                 <a href="#" class="criar-conta">Criar conta grátis</a>
             </div>
         </form>
@@ -98,6 +104,16 @@
         font-weight: bold;
         color: white;
         margin-top: 10px;
+    }
+
+    .alerta-login {
+        position: absolute;
+        top: 1rem;
+        color: white;
+        background-color: red;
+        border-radius: 5px;
+        padding: 5px;
+        margin-top: 5px;
     }
 
 </style>

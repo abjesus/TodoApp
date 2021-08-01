@@ -19,6 +19,11 @@ namespace TodoApp
                 name: "todo",
                 url: "todo/index"
             );
+
+            routes.MapRoute(
+                name: "entrar",
+                url: "usuario/entrar"
+            );
         }
     }
 }

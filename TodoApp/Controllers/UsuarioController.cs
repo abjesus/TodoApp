@@ -17,33 +17,28 @@ namespace TodoApp.Controllers
             return View();
         }
 
-        public ActionResult Entrar()
+        public ActionResult Entrar(string fail)
         {
+            if (!string.IsNullOrEmpty(fail))
+                ViewBag.retornoLogin = "Usuário ou senha inválidos!"; RedirectToRoute("entrar");
+
             return View("login");
         }
 
         public ActionResult Autenticar(string email, string senha)
         {
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
-            {
-                ViewBag.retornoLogin = "Usuário ou senha inválidos!";
-                return View();
-            }
-
             var resultado = _service.Autenticar(email, senha);
 
-            if (!resultado)
-            {
-                ViewBag.retornoLogin = "Usuário ou senha inválidos!";
-                return View();
-            }
-
-            return RedirectToRoute("todo");
+            if (resultado)
+                return RedirectToRoute("todo");
+            
+            
+            return RedirectToRoute("entrar", new { fail = "s" });
         }
 
         public ActionResult Sair()
         {
-            return View();
+            return RedirectToRoute("entrar");
         }
     }
 }
