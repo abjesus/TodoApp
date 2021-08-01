@@ -19,13 +19,13 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="botao-submit">OK</button>
-                @{ 
+                @{
                     if (!string.IsNullOrEmpty(ViewBag.retornoLogin))
                     {
                         <p class="alerta-login">@ViewBag.retornoLogin</p>
                     }
                 }
-                <a href="#" class="criar-conta">Criar conta grátis</a>
+                <a href="#" class="criar-conta" data-toggle="modal" data-target="#modalNovaConta">Criar conta grátis</a>
             </div>
         </form>
     </div>
@@ -33,6 +33,8 @@
         <img src="~/Imagens/todolist.svg" alt="todolist" />
     </div>
 </div>
+
+@Html.Partial("NovaConta")
 
 <style>
     .container {
@@ -58,12 +60,12 @@
         background-color: deepskyblue;
     }
 
-    .painel1 > h2 {
-        display: flex;
-        justify-content: center;
-        color: white;
-        margin-bottom: 15px;
-    }
+        .painel1 > h2 {
+            display: flex;
+            justify-content: center;
+            color: white;
+            margin-bottom: 15px;
+        }
 
     .painel2 {
         display: flex;
@@ -115,5 +117,4 @@
         padding: 5px;
         margin-top: 5px;
     }
-
 </style>
