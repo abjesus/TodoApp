@@ -7,6 +7,8 @@ namespace TodoApp.ViewModels
 {
     public class TodoViewModel
     {
+        public Guid Id { get; set; }
+
         public Guid UsuarioId { get; set; }
 
         public virtual UsuarioViewModel Usuario { get; set; }
@@ -35,6 +37,7 @@ namespace TodoApp.ViewModels
         {
             return new TodoViewModel
             {
+                Id = todo.Id,
                 UsuarioId = todo.UsuarioId,
                 Nome = todo.Nome,
                 Descricao = todo.Descricao,

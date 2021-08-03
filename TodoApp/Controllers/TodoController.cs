@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using TodoApp.Domain.Interfaces;
+using TodoApp.Enumeradores;
 using TodoApp.Filtros;
 using TodoApp.ViewModels;
 
@@ -39,6 +40,18 @@ namespace TodoApp.Controllers
             todo.UsuarioId = Guid.Parse(Session["usuario"].ToString());
             await _todoService.Incluir(todo.ToDomain());
             return RedirectToRoute("todo");
+        }
+
+        [Sessao]
+        public async Task<int> AlterarStatus(Guid todoId, TodoStatus status)
+        {
+            var todo = await _todoService.ObterPorId(todoId);
+            var viewmodel = TodoViewModel.FromDomain(todo);
+            viewmodel.Status = status;
+
+            await _todoService.Alterar(viewmodel.ToDomain());
+
+            return 1;
         }
     }
 }

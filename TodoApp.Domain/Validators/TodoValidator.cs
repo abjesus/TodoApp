@@ -15,9 +15,6 @@ namespace TodoApp.Domain.Validators
 
             RuleFor(todo => todo.Vencimento)
                 .NotEmpty().WithMessage("O campo {PropertyName} é obrigatório");
-
-            RuleFor(todo => todo.Status)
-                .NotEmpty().WithMessage("O campo {PropertyName} é obrigatório");
         }
     }
 }

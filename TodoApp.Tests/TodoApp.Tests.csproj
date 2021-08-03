@@ -99,9 +99,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\TodoControllerTest.cs" />
     <Compile Include="Controllers\UsuarioControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Services\TodoServiceTest.cs" />
     <Compile Include="Services\UsuarioServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
