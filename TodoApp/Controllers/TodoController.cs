@@ -46,10 +46,9 @@ namespace TodoApp.Controllers
         public async Task<int> AlterarStatus(Guid todoId, TodoStatus status)
         {
             var todo = await _todoService.ObterPorId(todoId);
-            var viewmodel = TodoViewModel.FromDomain(todo);
-            viewmodel.Status = status;
-
-            await _todoService.Alterar(viewmodel.ToDomain());
+            todo.Status = (Domain.Enumeradores.TodoStatus) status;
+            
+            await _todoService.Alterar(todo);        
 
             return 1;
         }

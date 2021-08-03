@@ -21,15 +21,28 @@ namespace TodoApp.ViewModels
 
         public TodoStatus Status { get; set; }
 
+        public DateTime? Criacao { get; set; }
+
+        public DateTime? Alteracao { get; set; }
+
+        public Guid? UsuarioCriacao { get; set; }
+
+        public Guid? UsuarioAlteracao { get; set; }
+
         public Todo ToDomain()
         {
             return new Todo
             {
+                Id = this.Id,
                 UsuarioId = this.UsuarioId,
                 Nome = this.Nome,
                 Descricao = this.Descricao,
                 Vencimento = this.Vencimento,
-                Status = (Domain.Enumeradores.TodoStatus) this.Status
+                Status = (Domain.Enumeradores.TodoStatus) this.Status,
+                Criacao = this.Criacao,
+                Alteracao = this.Alteracao,
+                UsuarioCriacao = this.UsuarioCriacao,
+                UsuarioAlteracao = this.UsuarioAlteracao
             };
         }
 
@@ -42,7 +55,11 @@ namespace TodoApp.ViewModels
                 Nome = todo.Nome,
                 Descricao = todo.Descricao,
                 Vencimento = todo.Vencimento,
-                Status = (TodoStatus) todo.Status
+                Status = (TodoStatus) todo.Status,
+                Criacao = todo.Criacao,
+                Alteracao = todo.Alteracao,
+                UsuarioCriacao = todo.UsuarioCriacao,
+                UsuarioAlteracao = todo.UsuarioAlteracao
             };
         }
 

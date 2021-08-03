@@ -244,12 +244,21 @@
             $('.quadro-body').bind('drop', (event) => {
                 $('#espacador').remove();
 
-                const status = event.target.getAttribute('id');
+                const painelEl = event.target;
+                console.log(painelEl);
+
+                let status;
+
+                if (event.target.getAttribute('class')?.endsWith('quadro-body'))
+                    status = event.target.getAttribute('id');
+                else
+                    status = elementoDestino.parentNode.getAttribute('id');
+                
                 const elementoId = event.originalEvent.dataTransfer.getData("text/plain");
 
                 $.post(
                     '@Url.Action("alterarstatus", "todo")',
-                    { todoId: elementoId, status: 1 },
+                    { todoId: elementoId, status: status },
                     (data, status, any) => {
                         if (status !== 'success')
                             return;
