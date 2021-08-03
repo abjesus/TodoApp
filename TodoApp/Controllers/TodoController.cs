@@ -32,5 +32,13 @@ namespace TodoApp.Controllers
                 Finalizado = viewmodels.Where(todo => todo.Status == Enumeradores.TodoStatus.Concluido).ToList(),
             });
         }
+
+        [Sessao]
+        public async Task<ActionResult> Incluir(TodoViewModel todo)
+        {
+            todo.UsuarioId = Guid.Parse(Session["usuario"].ToString());
+            await _todoService.Incluir(todo.ToDomain());
+            return RedirectToRoute("todo");
+        }
     }
 }

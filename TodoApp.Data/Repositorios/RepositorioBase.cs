@@ -18,38 +18,37 @@ namespace TodoApp.Data.Repositorios
             Contexto = contexto;
         }
 
-        public async Task Incluir(T entidade)
+        public virtual async Task Incluir(T entidade)
         {
             Contexto.Set<T>().Add(entidade);
             await Commit();
         }
 
-        public async Task Alterar(T entidade)
+        public virtual async Task Alterar(T entidade)
         {
             Contexto.Entry(entidade).State = System.Data.Entity.EntityState.Modified;
             await Commit();
         }
 
-        public async Task Excluir(T entidade)
+        public virtual async Task Excluir(T entidade)
         {
             Contexto.Set<T>().Remove(entidade);
             await Commit();
         }
 
-        public async Task<T> ObterPorId(Guid id)
+        public virtual async Task<T> ObterPorId(Guid id)
         {
             return await Contexto.Set<T>().FindAsync(id);
         }
 
-        public async Task<List<T>> ObterTodos(Guid idUsuario)
+        public virtual async Task<List<T>> ObterTodos(Guid idUsuario)
         {
             return await Contexto
                 .Set<T>()
-                .Where(entidade => entidade.Id == idUsuario)
                 .ToListAsync();
         }
 
-        public async Task Commit()
+        public virtual async Task Commit()
         {
             await Contexto.SaveChangesAsync();
         }
