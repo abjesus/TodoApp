@@ -52,7 +52,7 @@ namespace TodoApp.Domain.Services
             return await _repositorio.ObterTodos(idUsuario);
         }
 
-        public bool Autenticar(string email, string senha)
+        public Usuario Autenticar(string email, string senha)
         {
             return _repositorio.Autenticar(email, senha);
         }

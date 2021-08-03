@@ -4,6 +4,6 @@ namespace TodoApp.Domain.Interfaces
 {
     public interface IUsuarioRepositorio : IRepositorio<Usuario>
     {
-        bool Autenticar(string email, string senha);
+        Usuario Autenticar(string email, string senha);
     }
 }

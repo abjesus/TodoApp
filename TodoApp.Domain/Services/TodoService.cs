@@ -47,7 +47,7 @@ namespace TodoApp.Domain.Services
             return await _repositorio.ObterPorId(id);
         }
 
-        public async Task<IEnumerable<Todo>> ObterTodos(Guid idUsuario)
+        public async Task<List<Todo>> ObterTodos(Guid idUsuario)
         {
             return await _repositorio.ObterTodos(idUsuario);
         }

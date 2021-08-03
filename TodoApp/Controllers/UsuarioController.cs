@@ -32,17 +32,20 @@ namespace TodoApp.Controllers
 
         public ActionResult Autenticar(string email, string senha)
         {
-            var resultado = _service.Autenticar(email, senha);
+            var usuario = _service.Autenticar(email, senha);
 
-            if (resultado)
-                return RedirectToRoute("todo");
-            
-            
-            return RedirectToRoute("entrar", new { fail = "s" });
+            if (usuario == null)
+                return RedirectToRoute("entrar", new { fail = "s" });
+
+            Session["usuario"] = usuario.Id;
+            Session["nome"] = usuario.Nome;
+
+            return RedirectToRoute("todo");
         }
 
         public ActionResult Sair()
         {
+            Session.Abandon();
             return RedirectToRoute("entrar");
         }
 

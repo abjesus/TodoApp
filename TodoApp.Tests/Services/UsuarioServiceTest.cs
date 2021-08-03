@@ -154,8 +154,8 @@ namespace TodoApp.Tests.Services
             await service.Incluir(usuario);
             Assert.IsTrue(usuario.Criacao != null);
 
-            var ehAutentico = service.Autenticar(usuario.Email, usuario.Senha);
-            Assert.IsTrue(ehAutentico);
+            var usuarioAuth = service.Autenticar(usuario.Email, usuario.Senha);
+            Assert.IsTrue(usuarioAuth != null);
         }
 
         [TestMethod]

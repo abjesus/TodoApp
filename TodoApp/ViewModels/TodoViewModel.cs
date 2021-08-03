@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TodoApp.Domain.Entidades;
 using TodoApp.Enumeradores;
 
@@ -40,6 +41,15 @@ namespace TodoApp.ViewModels
                 Vencimento = todo.Vencimento,
                 Status = (TodoStatus) todo.Status
             };
+        }
+
+        public static List<TodoViewModel> FromDomain(List<Todo> todos)
+        {
+            var list = new List<TodoViewModel>();
+
+            todos.ForEach((todo) => list.Add(FromDomain(todo)));
+
+            return list;
         }
     }
 }

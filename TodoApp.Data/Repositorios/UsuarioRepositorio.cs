@@ -10,12 +10,12 @@ namespace TodoApp.Data.Repositorios
         public UsuarioRepositorio(DbContexto contexto) : base(contexto)
         {}
 
-        public bool Autenticar(string email, string senha)
+        public Usuario Autenticar(string email, string senha)
         {
             return Contexto
                 .Usuarios
                 .Where(usuario => usuario.Email.Equals(email) && usuario.Senha.Equals(senha))
-                .Any();
+                .FirstOrDefault();
         }
     }
 }

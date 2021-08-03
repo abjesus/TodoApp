@@ -12,6 +12,6 @@ namespace TodoApp.Domain.Interfaces
         Task Excluir(Todo entidade);
         Task Excluir(Guid id);
         Task<Todo> ObterPorId(Guid id);
-        Task<IEnumerable<Todo>> ObterTodos(Guid idUsuario);
+        Task<List<Todo>> ObterTodos(Guid idUsuario);
     }
 }

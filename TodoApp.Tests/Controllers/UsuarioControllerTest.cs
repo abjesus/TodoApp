@@ -27,7 +27,7 @@ namespace TodoApp.Tests.Controllers
             var contexto = new DbContexto();
             var repositorio = new UsuarioRepositorio(contexto);
             _usuarioService = new UsuarioService(repositorio, notificador);
-            _usuarioController = new UsuarioController(_usuarioService);
+            _usuarioController = new UsuarioController(_usuarioService, notificador);
         }
 
         [TestMethod]

@@ -1,4 +1,6 @@
-﻿<div class="sair">
+﻿@model TodoApp.ViewModels.TodosViewModel
+
+<div class="sair">
     <span>Olá, Abel</span> <button><i class="fas fa-power-off"></i></button>
 </div>
 <div class="container">
@@ -7,15 +9,18 @@
             <h3>Pendente</h3>
         </div>
         <div id="fazer" class="quadro-body">
-            <div id="item1" class="item" draggable="true">
-                Programar feature #1
-                <div class="item-footer">
-                    <i class="fas fa-clock"></i>
-                    <span> 31/07/2021</span>
-                </div>
-            </div>
-            <div id="item2" class="item" draggable="true">Pegar issues #3 e #7</div>
-            <div id="item3" class="item" draggable="true">Beber água</div>
+            @{
+                foreach (var item in Model.Pendentes)
+                {
+                    <div id="item1" class="item" draggable="true">
+                        @item.Nome
+                        <div class="item-footer">
+                            <i class="fas fa-clock"></i>
+                            <span> @item.Vencimento.ToString()</span>
+                        </div>
+                    </div>
+                }
+            }
             <button class="novo-item" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Novo card</button>
         </div>
     </div>
@@ -24,7 +29,18 @@
             <h3>Em andamento</h3>
         </div>
         <div id="fazendo" class="quadro-body">
-            <div id="item4" class="item" draggable="true">ITEM4</div>
+            @{
+                foreach (var item in Model.EmAndamento)
+                {
+                    <div id="item1" class="item" draggable="true">
+                        @item.Nome
+                        <div class="item-footer">
+                            <i class="fas fa-clock"></i>
+                            <span> @item.Vencimento.ToString()</span>
+                        </div>
+                    </div>
+                }
+            }
             <button class="novo-item" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Novo card</button>
         </div>
     </div>
@@ -33,8 +49,18 @@
             <h3>Finalizado</h3>
         </div>
         <div id="feito" class="quadro-body">
-            <div id="item5" class="item" draggable="true">ITEM5</div>
-            <div id="item6" class="item" draggable="true">ITEM6</div>
+            @{
+                foreach (var item in Model.Finalizado)
+                {
+                    <div id="item1" class="item" draggable="true">
+                        @item.Nome
+                        <div class="item-footer">
+                            <i class="fas fa-clock"></i>
+                            <span> @item.Vencimento.ToString()</span>
+                        </div>
+                    </div>
+                }
+            }
             <button class="novo-item" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Novo card</button>
         </div>
     </div>

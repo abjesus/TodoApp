@@ -1,5 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 using TodoApp.Domain.Interfaces;
+using TodoApp.Filtros;
+using TodoApp.ViewModels;
 
 namespace TodoApp.Controllers
 {
@@ -12,9 +17,20 @@ namespace TodoApp.Controllers
             _todoService = service;
         }
 
-        public ActionResult Index()
+        [Sessao]
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var usuarioId = Guid.Parse(Session["usuario"].ToString());
+
+            var todos = await _todoService.ObterTodos(usuarioId);
+            var viewmodels = TodoViewModel.FromDomain(todos);
+            
+            return View(new TodosViewModel
+            {
+                Pendentes = viewmodels.Where(todo => todo.Status == Enumeradores.TodoStatus.Pendente).ToList(),
+                EmAndamento = viewmodels.Where(todo => todo.Status == Enumeradores.TodoStatus.EmAndamento).ToList(),
+                Finalizado = viewmodels.Where(todo => todo.Status == Enumeradores.TodoStatus.Concluido).ToList(),
+            });
         }
     }
 }

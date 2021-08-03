@@ -13,6 +13,6 @@ namespace TodoApp.Domain.Interfaces
         Task Excluir(Guid id);
         Task<Usuario> ObterPorId(Guid id);
         Task<List<Usuario>> ObterTodos(Guid idUsuario);
-        bool Autenticar(string email, string senha);
+        Usuario Autenticar(string email, string senha);
     }
 }
