@@ -118,3 +118,26 @@
         margin-top: 5px;
     }
 </style>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#formNovaConta').bind('submit', (event) => {
+                event.preventDefault();
+                const dados = $('#formNovaConta').serialize();
+                $.post(
+                    '@Url.Action("inscrever", "usuario")',
+                    dados,
+                    (resdata, status, any) => {
+                        if (status === 'success')
+                            console.log('usuário cadastrado com sucesso!');
+                        else
+                            console.log(resdata);
+
+                        console.log(status);
+                    }
+                );
+            });
+        });
+    </script>
+}
