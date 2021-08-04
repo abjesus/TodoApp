@@ -146,11 +146,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Controllers\ErrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TodoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Enumeradores\TodoStatus.cs" />
     <Compile Include="Enumeradores\UsuarioStatus.cs" />
+    <Compile Include="Filtros\Erro.cs" />
     <Compile Include="Filtros\Sessao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,6 +206,8 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Usuario\NovaConta.cshtml" />
+    <Content Include="Views\erros\500.cshtml" />
+    <Content Include="Views\erros\404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

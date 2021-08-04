@@ -24,6 +24,16 @@ namespace TodoApp
                 name: "entrar",
                 url: "usuario/entrar"
             );
+
+            routes.MapRoute(
+                name: "erro500",
+                url: "erros/500"
+            );
+
+            routes.MapRoute(
+                name: "erro404",
+                url: "erros/404"
+            );
         }
     }
 }

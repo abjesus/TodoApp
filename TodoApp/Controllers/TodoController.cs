@@ -9,6 +9,7 @@ using TodoApp.ViewModels;
 
 namespace TodoApp.Controllers
 {
+    [Erro]
     public class TodoController : Controller
     {
         private readonly ITodoService _todoService;
