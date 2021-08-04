@@ -13,7 +13,10 @@
                 foreach (var item in Model.Pendentes)
                 {
                     <div id="@item.Id" class="item" draggable="true">
-                        @item.Nome
+                        <div class="item-header">
+                            <p>@item.Nome</p>
+                            <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
+                        </div>
                         <div class="item-footer">
                             <i class="fas fa-clock"></i>
                             <span> @item.Vencimento.ToString()</span>
@@ -33,7 +36,10 @@
                 foreach (var item in Model.EmAndamento)
                 {
                     <div id="@item.Id" class="item" draggable="true">
-                        @item.Nome
+                        <div class="item-header">
+                            <p>@item.Nome</p>
+                            <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
+                        </div>
                         <div class="item-footer">
                             <i class="fas fa-clock"></i>
                             <span> @item.Vencimento.ToString()</span>
@@ -53,7 +59,10 @@
                 foreach (var item in Model.Finalizado)
                 {
                     <div id="@item.Id" class="item" draggable="true">
-                        @item.Nome
+                        <div class="item-header">
+                            <p>@item.Nome</p>
+                            <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
+                        </div>
                         <div class="item-footer">
                             <i class="fas fa-clock"></i>
                             <span> @item.Vencimento.ToString()</span>
@@ -147,6 +156,19 @@
         border-radius: 3px;
         box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
         padding: 5px;
+    }
+
+    .item-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .item-header > p {
+        width: 95%;
+    }
+
+    .item-header > span {
+        width: 5%;
     }
 
     .item-footer {
