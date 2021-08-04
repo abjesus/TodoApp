@@ -21,6 +21,7 @@ namespace TodoApp.Controllers
         [Sessao]
         public async Task<ActionResult> Index()
         {
+            ViewBag.nomeUsuario = Session["nome"].ToString();
             var usuarioId = Guid.Parse(Session["usuario"].ToString());
 
             var todos = await _todoService.ObterTodos(usuarioId);

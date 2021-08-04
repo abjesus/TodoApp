@@ -1,7 +1,7 @@
 ﻿@model TodoApp.ViewModels.TodosViewModel
 
 <div class="sair">
-    <span>Olá, Abel</span> <button><i class="fas fa-power-off"></i></button>
+    <span>Olá, @ViewBag.nomeUsuario</span> <a href="@Url.Action("sair", "usuario")"><i class="fas fa-power-off"></i></a>
 </div>
 <div class="container">
     <div class="quadro">
@@ -191,11 +191,8 @@
         right: 3rem;
     }
 
-    .sair > button {
+    .sair > a {
         color: red;
-        border: none;
-        border-radius: 3px;
-        box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
     }
 
     .sair > span {
