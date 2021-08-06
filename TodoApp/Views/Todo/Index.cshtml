@@ -12,16 +12,17 @@
             @{
                 foreach (var item in Model.Pendentes)
                 {
-                    <div id="@item.Id" class="item" draggable="true">
-                        <div class="item-header">
-                            <p>@item.Nome</p>
-                            <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
+                        <div id="@item.Id" class="item" draggable="true">
+                            <div class="item-header">
+                                <p>@item.Nome</p>
+                                <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
+                            </div>
+                            <p>@item.Descricao</p>
+                            <div class="item-footer">
+                                <i class="fas fa-clock"></i>
+                                <span> @item.Vencimento.ToString("g")</span>
+                            </div>
                         </div>
-                        <div class="item-footer">
-                            <i class="fas fa-clock"></i>
-                            <span> @item.Vencimento.ToString()</span>
-                        </div>
-                    </div>
                 }
             }
             <button class="novo-item" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Novo card</button>
@@ -40,9 +41,10 @@
                             <p>@item.Nome</p>
                             <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
                         </div>
+                        <p>@item.Descricao</p>
                         <div class="item-footer">
                             <i class="fas fa-clock"></i>
-                            <span> @item.Vencimento.ToString()</span>
+                            <span> @item.Vencimento.ToString("g")</span>
                         </div>
                     </div>
                 }
@@ -58,16 +60,17 @@
             @{
                 foreach (var item in Model.Finalizado)
                 {
-                    <div id="@item.Id" class="item" draggable="true">
-                        <div class="item-header">
-                            <p>@item.Nome</p>
-                            <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
+                        <div id="@item.Id" class="item" draggable="true">
+                            <div class="item-header">
+                                <p>@item.Nome</p>
+                                <span><a href="@Url.Action("excluir", "todo", new { todoId = item.Id })"><i class="far fa-trash-alt"></i></a></span>
+                            </div>
+                            <p>@item.Descricao</p>
+                            <div class="item-footer">
+                                <i class="fas fa-clock"></i>
+                                <span> @item.Vencimento.ToString("g")</span>
+                            </div>
                         </div>
-                        <div class="item-footer">
-                            <i class="fas fa-clock"></i>
-                            <span> @item.Vencimento.ToString()</span>
-                        </div>
-                    </div>
                 }
             }
             <button class="novo-item" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Novo card</button>
