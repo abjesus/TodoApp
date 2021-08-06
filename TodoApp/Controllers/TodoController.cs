@@ -54,5 +54,13 @@ namespace TodoApp.Controllers
 
             return 1;
         }
+
+        [Sessao]
+        public async Task<ActionResult> Excluir(Guid todoId)
+        {
+            await _todoService.Excluir(todoId);
+
+            return RedirectToRoute("todo");
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace TodoApp.ViewModels
 {
     public class TodoViewModel
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         public Guid UsuarioId { get; set; }
 
