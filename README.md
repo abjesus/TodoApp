@@ -1,5 +1,5 @@
 # TodoApp
-Um site "To-Do list" feito com o objetivo de melhorar as skills de HTML e CSS. Escrito em ASP.NET MVC.
+Um site "To-Do list" feito com o objetivo de melhorar minhas skills de HTML e CSS. Escrito em ASP.NET MVC.
 
 # recursos
 - [x] Criação de usuário.
